@@ -29,6 +29,7 @@ const router = new express.Router();
 
 
 router.post('/orders/create', async (req, res) => {
+    console.log(req.body.body)
     const order = new Order({
         "products": req.body.foods,
         "user": req.body.userId,

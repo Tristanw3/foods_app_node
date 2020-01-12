@@ -2,13 +2,24 @@
   "name": "food_app",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "client-install": "cd web && yarn",
+    "start": "node ./src/app.js",
+    "server": "nodemon ./src/app.js",
+    "web": "yarn --cwd ./web/ start",
+    "dev": "concurrently \"yarn run server\" \"yarn run web\""
+  },
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^5.0.2",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.4.1",
     "mongoose": "^5.8.3",
     "validator": "^12.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
