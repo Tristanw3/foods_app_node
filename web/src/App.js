@@ -57,7 +57,7 @@ class App extends Component {
 
 	handleLogin(email, password) {
 		axios
-			.post('/api/auth/get_token', {
+			.post('/login', {
 				email: email,
 				password: password
 			})

@@ -41,21 +41,20 @@ export default class PurchasePage extends Component {
 	confirmPurchase() {
 		let auth = JSON.parse(sessionStorage.getItem('auth'));
 		const foodIds = this.props.cart.cart.map((food) => {
-			console.log(food)
 			return food.id
 		});
-		console.log(auth.user._id)
-		console.log(foodIds)
+		const cartCost = 101
+		console.log(cartCost)
 
 		if (!auth) return;
 		// console.log(auth);
 		axios
 			.post('/orders/create', {
-				headers: { Authorization: `Bearer ${auth.token}` },
 				foods: foodIds,
 				userId: auth.user._id,
-				cost: 100
-
+				cost: cartCost
+			}, {
+				headers: { Authorization: `Bearer ${auth.token}` },
 			})
 			.then((response) => {
 				console.log("the response")

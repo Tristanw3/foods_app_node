@@ -4,6 +4,10 @@ import { AccountCard, ItemSection, DateSection, TotalSection } from './AccountCa
 import { FoodThumbnail } from '../Food/FoodStyled';
 
 export default class AccountPage extends Component {
+	getOrders() {
+
+	}
+
 	render() {
 		return (
 			<PageSize>

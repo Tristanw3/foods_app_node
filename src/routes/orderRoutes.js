@@ -1,4 +1,5 @@
 const express = require('express');
+const auth = require('../middleware/auth');
 
 // models
 const Order = require('../models/order');
@@ -28,7 +29,8 @@ const router = new express.Router();
 // },
 
 
-router.post('/orders/create', async (req, res) => {
+router.post('/orders/create', auth, async (req, res) => {
+    console.log('xxxxx')
     console.log(req.body.body)
     const order = new Order({
         "products": req.body.foods,
@@ -36,10 +38,12 @@ router.post('/orders/create', async (req, res) => {
         "cost": req.body.cost
     })
 
+
+
     try {
         await order.save();
         res.status(201);
-        res.send("passed");
+        res.send("Order added");
     } catch (e) {
         console.log("Failed to add order");
         res.status(400);
