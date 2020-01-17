@@ -1,35 +1,21 @@
 import styled from 'styled-components';
 
 export const SignupPage = styled.div`
-  height: 90vh;
-`;
-
-export const YellowBanner = styled.div`
-  height: 10vh;
-  background: #f2e266;
-`;
-
-export const AquaBanner = styled.div`
-  height: 10vh;
-  background: #9bf2d7;
-`;
-
-export const PinkContainer = styled.section`
+  flex-grow:1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
-  background-color: #ffa8ca;
-  height: 70vh;
-  width: 100%;
 `;
 
+
+
 export const SignupStyled = styled.section`
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  background-color:rgba(0,0,0,0.2);
+  border-radius:30px;
 `;
 
 export const SignupHeader = styled.h1`

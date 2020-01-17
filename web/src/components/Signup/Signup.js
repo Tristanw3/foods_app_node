@@ -1,6 +1,7 @@
 import React from 'react';
-import { SignupPage, AquaBanner, PinkContainer, SignupStyled, SignupHeader, YellowBanner } from './SignupStyled';
+import { SignupPage, SignupStyled, SignupHeader } from './SignupStyled';
 import { Button, StyledLink, SignupLink, InputStyling } from '../Button';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class Signup extends React.Component {
@@ -58,25 +59,24 @@ export default class Signup extends React.Component {
 	render() {
 		return (
 			<SignupPage>
-				<AquaBanner />
-				<PinkContainer>
-					<SignupStyled>
-						<SignupHeader>Sign-Up</SignupHeader>
 
-						<InputStyling>
-							<input type="text" placeholder="Name" required onChange={this.handleName} />
-							<input type="text" placeholder="Email" required onChange={this.handleEmail} />
-							<input type="text" placeholder="Password" required onChange={this.handlePassword} />
-							<input type="text" placeholder="Confirm Password" required onChange={this.handleConfirmPassword} />
-						</InputStyling>
 
-						<StyledLink to="/menu">
-							<Button onClick={this.handleSignUp}>Sign-Up</Button>
-						</StyledLink>
-						<p><SignupLink to="/login">Already have an account?</SignupLink></p>
-					</SignupStyled>
-				</PinkContainer>
-				<YellowBanner />
+				<SignupStyled>
+					<SignupHeader>Sign-Up</SignupHeader>
+					<InputStyling>
+						<input type="text" placeholder="Name" required onChange={this.handleName} />
+						<input type="text" placeholder="Email" required onChange={this.handleEmail} />
+						<input type="text" placeholder="Password" required onChange={this.handlePassword} />
+						<input type="text" placeholder="Confirm Password" required onChange={this.handleConfirmPassword} />
+					</InputStyling>
+					<StyledLink to="/menu">
+						<Button onClick={this.handleSignUp}>
+							<Link to='/menu'>Sign-Up</Link>
+						</Button>
+					</StyledLink>
+					<p><SignupLink to="/login">Already have an account?</SignupLink></p>
+				</SignupStyled>
+
 			</SignupPage>
 		);
 	}

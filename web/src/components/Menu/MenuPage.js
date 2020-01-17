@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import MenuItem from './MenuItem';
+import MenuItem from './MenuItem/MenuItem';
 import { MenuPageStyling } from './MenuPageStyled';
 
 export default class MenuPage extends Component {
@@ -9,8 +9,18 @@ export default class MenuPage extends Component {
 		foodItems: []
 	};
 
+
 	componentDidMount() {
+		this.update()
+	}
+	componentDidUpdate() {
+		this.update()
+	}
+	update() {
+
 		let auth = JSON.parse(sessionStorage.getItem('auth'));
+		console.log("auth")
+		console.log(auth)
 		if (!auth) return;
 
 		axios
@@ -27,7 +37,6 @@ export default class MenuPage extends Component {
 				console.log(err);
 			});
 	}
-
 
 	render() {
 		const foods = this.state.foodItems.map((food, index) => (

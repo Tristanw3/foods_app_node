@@ -1,35 +1,21 @@
 import styled from 'styled-components';
 
 export const LoginPage = styled.div`
-  height: 90vh;
-`;
+  flex-grow:1;
 
-export const YellowBanner = styled.div`
-  height: 20vh;
-  background: #f2e266;
-`;
-
-export const AquaBanner = styled.div`
-  height: 20vh;
-  background: #9bf2d7;
-`;
-
-export const PinkContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
-  background-color: #ffa8ca;
-  height: 50vh;
-  width: 100%;
 `;
 
+
 export const LoginStyled = styled.section`
-  position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  background-color:rgba(0,0,0,0.2);
+  border-radius:30px;
 `;
 
 export const LoginHeader = styled.h1`

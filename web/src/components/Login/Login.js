@@ -1,13 +1,11 @@
 import React from 'react';
-import { LoginPage, YellowBanner, PinkContainer, LoginStyled, LoginHeader, AquaBanner } from './LoginStyled';
+import { LoginPage, LoginStyled, LoginHeader, } from './LoginStyled';
 import { Button, StyledLink, SignupLink, InputStyling } from '../Button';
+import { Link } from 'react-router-dom';
 
 export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
-
-		// this.handleLoginBtn = this.handleLoginBtn.bind(this);
-
 		this.state = {
 			email: '',
 			password: ''
@@ -36,25 +34,22 @@ export default class Login extends React.Component {
 	render() {
 		return (
 			<LoginPage>
-				<YellowBanner />
+				<LoginStyled>
+					<LoginHeader>Login</LoginHeader>
+					<InputStyling>
+						<input type="text" placeholder="Email" onChange={this.handleEmailForm} />
+						<input type="text" placeholder="Password" onChange={this.handlePasswordForm} />
+					</InputStyling>
+					<StyledLink >
+						<Button onClick={this.handleLoginBtn}>
+							<Link to='/menu'>Login</Link>
+						</Button>
+					</StyledLink>
+					<p>
+						<SignupLink to="/signup">Need to Sign-Up?</SignupLink>
+					</p>
+				</LoginStyled>
 
-				<PinkContainer>
-					<LoginStyled>
-						<LoginHeader>Login</LoginHeader>
-						<InputStyling>
-							<input type="text" placeholder="Email" onChange={this.handleEmailForm} />
-							<input type="text" placeholder="Password" onChange={this.handlePasswordForm} />
-						</InputStyling>
-						<StyledLink to="/menu">
-							<Button onClick={this.handleLoginBtn}>Login</Button>
-						</StyledLink>
-						<p>
-							<SignupLink to="/signup">Need to Sign-Up?</SignupLink>
-						</p>
-					</LoginStyled>
-				</PinkContainer>
-
-				<AquaBanner />
 			</LoginPage>
 		);
 	}

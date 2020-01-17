@@ -5,8 +5,9 @@ export const MenuCard = styled.div`
 	justify-content: center;
 	align-items: center;
 	background-color: ${(props) => props.background};
-	height: 45vh;
-	width: 50%;
+	height: 400px;
+	flex-basis:50%;
+	flex-grow:1;
 	box-sizing: border-box;
 
 	&:hover {
@@ -14,7 +15,7 @@ export const MenuCard = styled.div`
 	}
 
 	@media (max-width: 1000px) {
-		width: 100%;
+		// width: 100%;
 	}
 `;
 

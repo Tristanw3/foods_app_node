@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { SummerHome } from './components/Home/SummerHome';
-// import {WinterHome} from './components/Home/WinterHome';
+import Home from './components/Home/Home';
+
 // import { MenuItems } from './components/MenuItems/Menu';
 import Account from './components/Account/AccountPage';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import { NoMatch } from './components/NoMatch';
-import NavigationBar from './components/NavigationBar';
+import NavigationBar from './components/Navbar/navbar';
 import MenuPage from './components/Menu/MenuPage';
 import PurchasePage from './components/Cart/PurchasePage';
+
+import './App.css'
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,41 +21,18 @@ class App extends Component {
 		super(props);
 		let auth = JSON.parse(sessionStorage.getItem('auth'));
 		this.state = {
-			isLoggedIn: !!auth ? true : false,
-			currentUser: null,
+			isLoggedIn: auth ? true : false,
+			currentUser: auth ? auth.name : null,
 			cart: [],
 			total: 0
 		};
 	}
 
-	componentDidMount() {
-		// this.getUser();
-		let auth = JSON.parse(sessionStorage.getItem('auth'));
-		if (!auth) return;
-		console.log(auth);
-	}
-
-	getUser() {
-		let auth = JSON.parse(sessionStorage.getItem('auth'));
-		if (!auth) return;
-		console.log(auth);
-
-		axios
-			.get(`/api/users/${auth.userId}`, {
-				headers: { Authorization: `Bearer ${auth.token}` }
-			})
-			.then((response) => {
-				this.setState({
-					...this.state,
-					currentUser: response.data,
-					isLoggedIn: true
-				});
-				return <Redirect to="/" />;
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	}
+	// componentDidMount() {
+	// 	// this.getUser();
+	// 	let auth = JSON.parse(sessionStorage.getItem('auth'));
+	// 	if (!auth) return;
+	// }
 
 	handleLogin(email, password) {
 		axios
@@ -63,7 +42,9 @@ class App extends Component {
 			})
 			.then((response) => {
 				sessionStorage.setItem('auth', JSON.stringify(response.data));
-				this.getUser();
+				let auth = JSON.stringify(response.data)
+				this.setState({ ...this.state, isLoggedIn: true, currentUser: auth.user });
+
 			})
 			.catch((err) => {
 				console.log('Failed to login user with error: ');
@@ -98,35 +79,33 @@ class App extends Component {
 
 
 		return (
-			<React.Fragment>
-				<Router>
-					<NavigationBar user={userProps} />
+			<Router>
+				<NavigationBar user={userProps} />
 
-					<Switch>
-						<Route exact path="/">
-							<SummerHome user={userProps} cart={cartProps} />
-						</Route>
-						<Route path="/menu" component={MenuPage}>
-							<MenuPage user={userProps} cart={cartProps} addToCart={this.handleAddToCart} />
-						</Route>
-						<Route path="/purchase" component={PurchasePage}>
-							<PurchasePage user={userProps} cart={cartProps} />
-						</Route>
-						<Route path="/account" component={Account}>
-							<Account user={userProps} cart={cartProps} />
-						</Route>
-						<Route path="/login" component={Login}>
-							<Login user={userProps} cart={cartProps} />
-						</Route>
-						{/* <Route path="/signup" component={Signup} user={userProps} cart={cartProps}/> */}
-						<Route path="/signup">
-							<Signup user={userProps} cart={cartProps} />
-						</Route>
+				<Switch>
+					<Route exact path="/">
+						<Home user={userProps} cart={cartProps} />
+					</Route>
+					<Route path="/menu" component={MenuPage}>
+						<MenuPage user={userProps} cart={cartProps} addToCart={this.handleAddToCart} />
+					</Route>
+					<Route path="/purchase" component={PurchasePage}>
+						<PurchasePage user={userProps} cart={cartProps} />
+					</Route>
+					<Route path="/account" component={Account}>
+						<Account user={userProps} cart={cartProps} />
+					</Route>
+					<Route path="/login" component={Login}>
+						<Login user={userProps} cart={cartProps} />
+					</Route>
+					{/* <Route path="/signup" component={Signup} user={userProps} cart={cartProps}/> */}
+					<Route path="/signup">
+						<Signup user={userProps} cart={cartProps} />
+					</Route>
 
-						<Route component={NoMatch} />
-					</Switch>
-				</Router>
-			</React.Fragment>
+					<Route component={NoMatch} />
+				</Switch>
+			</Router>
 		);
 	}
 }
