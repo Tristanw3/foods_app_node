@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { FoodTextLayout, FoodImage, FoodName, FoodCost } from '../Food/FoodStyled';
 import axios from 'axios';
+import { FoodTextLayout, FoodImage, FoodName, FoodCost } from '../Food/FoodStyled';
+import { StyledButton } from '../Common/Buttons'
 import {
-	PageSize,
+	AccountPage,
 	YellowBanner,
 	ButtonRow,
 	PinkContainer,
@@ -10,7 +11,7 @@ import {
 	AddSubtractBlock,
 	PurchaseNumber
 } from './PurchasePageStyled';
-import { Add, Subtract, Button, StyledLink } from '../Button';
+import { Add, Subtract, Button, StyledLink } from '../Common/Buttons';
 import { BackDrop } from '../Modal/ModalStyled';
 import { Modal } from '../Modal/Modal';
 
@@ -74,42 +75,41 @@ export default class PurchasePage extends Component {
 		));
 
 		return (
-			<PageSize>
+			<AccountPage>
 				<YellowBanner>
 					<h1>Total Amount: ${this.props.cart.total}.00</h1>
 					{this.state.isShowing ? <BackDrop onClick={this.closeModalHandler} /> : null}
 
 					<ButtonRow>
-						<StyledLink to="/menu">
-							<Button>Back To Menu</Button>
-						</StyledLink>
-						<Button onClick={this.confirmPurchase}>Confirm Purchase</Button>
+						<StyledButton to="/menu">Back To Menu</StyledButton>
+						<StyledButton onClick={this.confirmPurchase}>Confirm Purchase</StyledButton>
 					</ButtonRow>
 				</YellowBanner>
+				<div></div>
 
-				<PinkContainer>
-					<Modal show={this.state.isShowing} close={this.closeModalHandler}>
-						<p>and thanks for shopping with us</p>
-					</Modal>
-					<ol>
-						{foodList}
-					</ol>
-					{/* <PurchaseCard>
-						<FoodImage />
+				{/* <PinkContainer> */}
+				{/* <Modal show={this.state.isShowing} close={this.closeModalHandler}>
+					<p>and thanks for shopping with us</p>
+				</Modal>
+				<ol>
+					{foodList}
+				</ol>
+				<PurchaseCard>
+					<FoodImage />
 
-						<FoodTextLayout>
-							<FoodName>Iced Coffee</FoodName>
-							<FoodCost>... $5.00</FoodCost>
-						</FoodTextLayout>
+					<FoodTextLayout>
+						<FoodName>Iced Coffee</FoodName>
+						<FoodCost>... $5.00</FoodCost>
+					</FoodTextLayout>
 
-						<AddSubtractBlock>
-							<Add>+</Add>
-							<PurchaseNumber>0</PurchaseNumber>
-							<Subtract>-</Subtract>
-						</AddSubtractBlock>
-					</PurchaseCard> */}
-				</PinkContainer>
-			</PageSize>
+					<AddSubtractBlock>
+						<Add>+</Add>
+						<PurchaseNumber>0</PurchaseNumber>
+						<Subtract>-</Subtract>
+					</AddSubtractBlock>
+				</PurchaseCard> */}
+				{/* </PinkContainer> */}
+			</AccountPage>
 		);
 	}
 }

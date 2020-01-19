@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { FoodTextLayout, FoodImage, FoodName, FoodCost } from '../../Food/FoodStyled';
 import { MenuCard } from './MenuItemStyled';
-import { MenuButton, StyledLink } from '../../Button';
+import { MenuButton, StyledLink } from '../../Common/Buttons';
 
 export default class MenuItem extends Component {
 

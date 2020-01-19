@@ -22,7 +22,7 @@ class App extends Component {
 		let auth = JSON.parse(sessionStorage.getItem('auth'));
 		this.state = {
 			isLoggedIn: auth ? true : false,
-			currentUser: auth ? auth.name : null,
+			currentUser: auth ? auth.user.name : {},
 			cart: [],
 			total: 0
 		};
@@ -36,6 +36,7 @@ class App extends Component {
 			.then((response) => {
 				sessionStorage.setItem('auth', JSON.stringify(response.data));
 				let auth = JSON.stringify(response.data)
+				console.log(auth)
 				this.setState({ ...this.state, isLoggedIn: true, currentUser: auth.user });
 
 			})

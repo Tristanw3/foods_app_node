@@ -1,22 +1,25 @@
 import styled from 'styled-components';
+import { Page } from '../Common/Page'
 
-export const PageSize = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;  
-  overflow: visible;
+export const Account = styled(Page)`
+  display:flex;
+  
 `;
 
-export const YellowBanner = styled.div`
-  width: 100%;
-  height: 25vh;
+export const Main = styled.div`
+  flex-grow:1;
+  display:flex;
+  justify-content:space-between;
+  padding:50px;
+`;
+
+
+export const YellowAside = styled.div`
+  padding:20px;
+  width:200px;
   background: #f2e266;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction:column;
 `;
 
 export const YellowBannerHeader = styled.div`
@@ -31,15 +34,3 @@ export const YellowBannerHeader = styled.div`
     }
 `;
 
-export const AquaContainerHeader = styled.header`
-  width: 80%; 
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  border-bottom: 2px #222 solid;
-  box-sizing: border-box;
-  margin-top: 2rem;
-
-  @media (max-width: 1000px) {
-    width: 90%;
-    }
-`;

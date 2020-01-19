@@ -1,6 +1,6 @@
 import React from 'react';
 import { SignupPage, SignupStyled, SignupHeader } from './SignupStyled';
-import { Button, StyledLink, SignupLink, InputStyling } from '../Button';
+import { Button, StyledLink, SignupLink, InputStyling } from '../Common/Buttons';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -59,8 +59,6 @@ export default class Signup extends React.Component {
 	render() {
 		return (
 			<SignupPage>
-
-
 				<SignupStyled>
 					<SignupHeader>Sign-Up</SignupHeader>
 					<InputStyling>

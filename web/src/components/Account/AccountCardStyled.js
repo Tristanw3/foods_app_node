@@ -3,9 +3,6 @@ import styled from 'styled-components';
 export const AccountCard = styled.div`
   display: flex;
   align-items: center;
-  height: 20vh;
-  width: 80%;
-  border-bottom: 1px #222 solid;
 
   @media (max-width: 1000px) {
     width: 90%;

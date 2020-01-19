@@ -37,7 +37,7 @@ export const NavItem = styled(Link)`
 `;
 
 export const NavBrand = styled(NavItem)`
-  font-size:20px;
+  font-size:1.5rem;
   flex-basis:200px;
   
   text-align: center;

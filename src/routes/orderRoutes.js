@@ -38,8 +38,6 @@ router.post('/orders/create', auth, async (req, res) => {
         "cost": req.body.cost
     })
 
-
-
     try {
         await order.save();
         res.status(201);
@@ -51,7 +49,8 @@ router.post('/orders/create', auth, async (req, res) => {
     }
 });
 
-router.get('/orders', async (req, res) => {
+router.post('/orders', auth, async (req, res) => {
+
     try {
         const single = await Order.findOne({ cost: 20 })
         single.populate('user').execPopulate(function (err) {

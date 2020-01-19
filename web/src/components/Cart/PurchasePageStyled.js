@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { Page } from '../Common/Page'
 
-export const PageSize = styled.div`
-  height: 90vh;
+export const AccountPage = styled(Page)`
+  display:flex;
 `;
 
 export const YellowBanner = styled.div`
-  height: 25vh;
+  height: 200px;
   background: #f2e266;
   display: flex;
   flex-direction: column;

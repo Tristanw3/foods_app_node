@@ -1,6 +1,6 @@
 import React from 'react';
 import { LoginPage, LoginStyled, LoginHeader, } from './LoginStyled';
-import { Button, StyledButton, SignupLink, InputStyling } from '../Button';
+import { Button, StyledButton, SignupLink, InputStyling } from '../Common/Buttons';
 import { Redirect } from 'react-router-dom';
 
 export default class Login extends React.Component {
@@ -11,6 +11,10 @@ export default class Login extends React.Component {
 			password: ''
 		};
 	}
+
+	// componentDidUpdate(prevProps) {
+	// 	if ()
+	// }
 
 	handleEmailForm = (e) => {
 		this.setState({
@@ -27,15 +31,12 @@ export default class Login extends React.Component {
 	};
 
 	handleLoginBtn = () => {
-		console.log(this.props);
 		this.props.user.login(this.state.email, this.state.password);
 	};
 
 	render() {
-
-		const { loggedIn } = this.props.user.isLoggedIn;
-		console.log(loggedIn)
-		if (loggedIn) {
+		const loggedIn = this.props.user.isLoggedIn;
+		if (loggedIn === true) {
 			return <Redirect to="/menu" />
 		}
 		return (
@@ -44,7 +45,7 @@ export default class Login extends React.Component {
 					<LoginHeader>Login</LoginHeader>
 					<InputStyling>
 						<input type="text" placeholder="Email" onChange={this.handleEmailForm} />
-						<input type="text" placeholder="Password" onChange={this.handlePasswordForm} />
+						<input type="password" placeholder="Password" onChange={this.handlePasswordForm} />
 					</InputStyling>
 					<StyledButton onClick={this.handleLoginBtn}>Login</StyledButton>
 					<p>

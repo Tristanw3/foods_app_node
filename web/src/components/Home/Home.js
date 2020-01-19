@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-  HomeStyling,
+  HomePage,
   HeaderWrapper,
   HomeHeader,
   HomeSentence,
@@ -10,18 +10,18 @@ import {
 
 import {
   StyledButton,
-} from '../Button';
+} from '../Common/Buttons';
 
 export default class Home extends Component {
   render() {
     return (
-      <HomeStyling>
+      <HomePage>
         <HeaderWrapper>
           <HomeHeader>Sweets To Go</HomeHeader>
           <HomeSentence>Because there's always <br /> room for dessert</HomeSentence>
         </HeaderWrapper>
         <StyledButton to="/login">Make An Order</StyledButton>
-      </HomeStyling>
+      </HomePage>
     )
   }
 

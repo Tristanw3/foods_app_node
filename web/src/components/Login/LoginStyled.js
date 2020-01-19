@@ -1,8 +1,7 @@
 import styled from 'styled-components';
+import { Page } from '../Common/Page'
 
-export const LoginPage = styled.div`
-  flex-grow:1;
-
+export const LoginPage = styled(Page)`
   display: flex;
   flex-direction: column;
   justify-content: center;

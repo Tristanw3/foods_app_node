@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'
+import { Page } from '../Common/Page'
 
-export const HomeStyling = styled.div`
+export const HomePage = styled(Page)`
   flex-grow:1;
   display:flex;
   flex-direction:column;
