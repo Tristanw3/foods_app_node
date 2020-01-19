@@ -60,17 +60,17 @@ export const MenuButton = styled.button`
   }
 `;
 
-export const Button = styled.button`
+export const StyledButton = styled(Link)`
   background:hotpink;
   border-radius: 40px;
   border: 3px solid white;
   color: white;
   font-weight: 400;
   font-size: 1.5rem;
+  text-decoration:none;
   margin: 0 1rem 1rem 1rem;
-  padding: 0.25em 1em;
+  padding: 0.3em 2em;
   box-shadow: 4px 4px #222;
-  width: 300px;
 
   &:hover{
     box-shadow: none;
@@ -78,12 +78,40 @@ export const Button = styled.button`
   }
 `;
 
+export const Button = styled(Link)`
+  background:hotpink;
+  border-radius: 40px;
+  border: 3px solid white;
+  color: white;
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-decoration:none;
+  margin: 0 1rem 1rem 1rem;
+  padding: 0.3em 2em;
+  box-shadow: 4px 4px #222;
+
+  &:hover{
+    box-shadow: none;
+    background: #f2e266;
+  }
+`;
+
+// export const StyledButton = styled(Link)`
+//   color: white;
+//   font-weight: 600;
+//   text-decoration: none;
+//   &:hover{
+
+//     color: white;
+//   }
+// `;
+
+
 export const StyledLink = styled(Link)`
   color: white;
   font-weight: 600;
-
+  text-decoration: none;
   &:hover{
-    text-decoration: none;
     color: white;
   }
 `;

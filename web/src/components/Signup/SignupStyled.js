@@ -7,8 +7,6 @@ export const SignupPage = styled.div`
   justify-content: center;
 `;
 
-
-
 export const SignupStyled = styled.section`
   display: flex;
   flex-direction: column;

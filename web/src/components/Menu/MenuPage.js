@@ -9,18 +9,15 @@ export default class MenuPage extends Component {
 		foodItems: []
 	};
 
-
 	componentDidMount() {
-		this.update()
+		this.update();
 	}
-	componentDidUpdate() {
-		this.update()
+	componentDidUpdate(prevProps) {
+		if (this.props.user.isLoggedIn !== prevProps.user.isLoggedIn) { this.update(); }
 	}
-	update() {
 
+	update() {
 		let auth = JSON.parse(sessionStorage.getItem('auth'));
-		console.log("auth")
-		console.log(auth)
 		if (!auth) return;
 
 		axios
@@ -29,9 +26,9 @@ export default class MenuPage extends Component {
 			})
 			.then((response) => {
 				this.setState({
+					...this.state,
 					foodItems: response.data
 				});
-				console.log(this.state.foodItems);
 			})
 			.catch((err) => {
 				console.log(err);

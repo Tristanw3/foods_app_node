@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import Home from './components/Home/Home';
 
@@ -8,7 +8,7 @@ import Account from './components/Account/AccountPage';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import { NoMatch } from './components/NoMatch';
-import NavigationBar from './components/Navbar/navbar';
+import NavigationBar from './components/Navbar/Navbar';
 import MenuPage from './components/Menu/MenuPage';
 import PurchasePage from './components/Cart/PurchasePage';
 
@@ -27,13 +27,6 @@ class App extends Component {
 			total: 0
 		};
 	}
-
-	// componentDidMount() {
-	// 	// this.getUser();
-	// 	let auth = JSON.parse(sessionStorage.getItem('auth'));
-	// 	if (!auth) return;
-	// }
-
 	handleLogin(email, password) {
 		axios
 			.post('/login', {
@@ -98,7 +91,6 @@ class App extends Component {
 					<Route path="/login" component={Login}>
 						<Login user={userProps} cart={cartProps} />
 					</Route>
-					{/* <Route path="/signup" component={Signup} user={userProps} cart={cartProps}/> */}
 					<Route path="/signup">
 						<Signup user={userProps} cart={cartProps} />
 					</Route>

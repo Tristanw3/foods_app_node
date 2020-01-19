@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoginPage, LoginStyled, LoginHeader, } from './LoginStyled';
-import { Button, StyledLink, SignupLink, InputStyling } from '../Button';
-import { Link } from 'react-router-dom';
+import { Button, StyledButton, SignupLink, InputStyling } from '../Button';
+import { Redirect } from 'react-router-dom';
 
 export default class Login extends React.Component {
 	constructor(props) {
@@ -32,6 +32,12 @@ export default class Login extends React.Component {
 	};
 
 	render() {
+
+		const { loggedIn } = this.props.user.isLoggedIn;
+		console.log(loggedIn)
+		if (loggedIn) {
+			return <Redirect to="/menu" />
+		}
 		return (
 			<LoginPage>
 				<LoginStyled>
@@ -40,11 +46,7 @@ export default class Login extends React.Component {
 						<input type="text" placeholder="Email" onChange={this.handleEmailForm} />
 						<input type="text" placeholder="Password" onChange={this.handlePasswordForm} />
 					</InputStyling>
-					<StyledLink >
-						<Button onClick={this.handleLoginBtn}>
-							<Link to='/menu'>Login</Link>
-						</Button>
-					</StyledLink>
+					<StyledButton onClick={this.handleLoginBtn}>Login</StyledButton>
 					<p>
 						<SignupLink to="/signup">Need to Sign-Up?</SignupLink>
 					</p>

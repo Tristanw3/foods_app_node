@@ -1,17 +1,13 @@
 import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
 
-import { withRouter, Link } from 'react-router-dom';
+// import { Nav, Navbar } from 'react-bootstrap';
 
-import './navbar.css'
+import { NavbarBackground, LeftNav, RightNav, NavBrand, NavItem } from './NavbarStyled';
 
-
-
-class NavigationBar extends React.Component {
+export default class NavigationBar extends React.Component {
 	handleLogoutBtn = () => {
 		this.props.user.logout();
 	};
-
 
 	componentWillMount() {
 		let auth = JSON.parse(sessionStorage.getItem('auth'));
@@ -19,69 +15,29 @@ class NavigationBar extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.isLoggedIn);
-
+		let navItems;
+		this.props.user.isLoggedIn ? (
+			navItems =
+			<RightNav>
+				<NavItem to="/account">Account</NavItem>
+				<NavItem to='/menu'>Menu</NavItem>
+				<NavItem to='/' onClick={this.handleLogoutBtn}>Logout</NavItem>
+				<NavItem to='/purchase'><i className="fas fa-shopping-cart" /></NavItem>
+			</RightNav>
+		) : navItems =
+			<RightNav>
+				<NavItem to='/signup'>Signup</NavItem >
+				<NavItem to="/login">Login</NavItem>
+			</RightNav >
 		return (
-			<Navbar expand="lg">
-				<Navbar.Brand >
-					<Link to="/">Sweets To Go</Link>
-				</Navbar.Brand>
-				<Navbar.Toggle aria-controls="basic-navbar-nav" />
-				<Navbar.Collapse id="basic-navbar-nav">
-					<Nav className="ml-auto">
-						{!this.props.user.isLoggedIn ?
-							<Nav.Item>
-								<Nav.Link >
-									<Link to='/'>Home</Link>
-								</Nav.Link>
-							</Nav.Item> : null}
-						{!this.props.user.isLoggedIn ?
-							<Nav.Item>
-								<Nav.Link >
-									<Link to='/signup'>Signup</Link>
-								</Nav.Link>
-							</Nav.Item> : null}
-						{this.props.user.isLoggedIn ?
-							<Nav.Item>
-								<Nav.Link>
-									<Link to='/menu'>Menu</Link>
-								</Nav.Link>
-							</Nav.Item>
-							: null}
-						{!this.props.user.isLoggedIn ?
-							< Nav.Item >
-								<Nav.Link >
-									<Link to="/login">Login</Link>
-								</Nav.Link>
-							</Nav.Item> : null}
-
-						{this.props.user.isLoggedIn ?
-							< Nav.Item >
-								<Nav.Link onClick={this.handleLogoutBtn}>
-									<Link to='/'>Logout</Link>
-								</Nav.Link>
-							</Nav.Item> : null}
-
-						{this.props.user.isLoggedIn ?
-							<Nav.Item>
-								<Nav.Link >
-									<Link to="/account">Account</Link>
-								</Nav.Link>
-							</Nav.Item> : null}
-
-						{this.props.user.isLoggedIn ?
-							<Nav.Item>
-								<Nav.Link>
-									<Link to='/purchase'><i className="fas fa-shopping-cart" /></Link>
-								</Nav.Link>
-							</Nav.Item> : null}
-					</Nav>
-				</Navbar.Collapse >
-			</Navbar >
-
+			<NavbarBackground>
+				<LeftNav>
+					<NavBrand to='/'>Sweets To Go</NavBrand>
+				</LeftNav>
+				<RightNav>
+					{navItems}
+				</RightNav>
+			</NavbarBackground>
 		);
 	}
 }
-
-
-export default NavigationBar;

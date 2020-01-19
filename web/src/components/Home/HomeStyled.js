@@ -40,13 +40,3 @@ export const HomeSentence = styled.h2`
   line-height: 3.5rem;
   color: #222;
 `;
-
-export const StyledLink = styled(Link)`
-  color: white;
-  font-weight: 600;
-
-  &:hover{
-    text-decoration: none;
-    color: white;
-  }
-`;

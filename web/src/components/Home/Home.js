@@ -5,11 +5,11 @@ import {
   HeaderWrapper,
   HomeHeader,
   HomeSentence,
-  StyledLink
+
 } from './HomeStyled';
 
 import {
-  Button,
+  StyledButton,
 } from '../Button';
 
 export default class Home extends Component {
@@ -20,7 +20,7 @@ export default class Home extends Component {
           <HomeHeader>Sweets To Go</HomeHeader>
           <HomeSentence>Because there's always <br /> room for dessert</HomeSentence>
         </HeaderWrapper>
-        <StyledLink to="/login"><Button>Make An Order</Button></StyledLink>
+        <StyledButton to="/login">Make An Order</StyledButton>
       </HomeStyling>
     )
   }
