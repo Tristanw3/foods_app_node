@@ -6,6 +6,7 @@ export const AccountPage = styled(Page)`
 `;
 
 export const YellowBanner = styled.div`
+  width:100%;
   height: 200px;
   background: #f2e266;
   display: flex;

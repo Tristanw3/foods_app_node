@@ -96,16 +96,6 @@ export const Button = styled(Link)`
   }
 `;
 
-// export const StyledButton = styled(Link)`
-//   color: white;
-//   font-weight: 600;
-//   text-decoration: none;
-//   &:hover{
-
-//     color: white;
-//   }
-// `;
-
 
 export const StyledLink = styled(Link)`
   color: white;
@@ -129,14 +119,14 @@ export const SignupLink = styled(Link)`
 export const InputStyling = styled.div`
   input {
     display: block;
-    width: 300px;
-    height: 30px;
+    width: 250px;
+    height: 5px;
     margin-bottom: 1rem;
     border: none;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 100px;
     text-align: center;
-    font-size: 1.2rem;;
+    font-size: 1.2rem;
     padding: 1.2rem;
   }
 

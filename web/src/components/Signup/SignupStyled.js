@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import { Page } from '../Common/Page'
 
-export const SignupPage = styled.div`
-  flex-grow:1;
+export const SignupPage = styled(Page)`
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items:center;
 `;
 
 export const SignupStyled = styled.section`
@@ -14,6 +14,7 @@ export const SignupStyled = styled.section`
   align-items: center;
   background-color:rgba(0,0,0,0.2);
   border-radius:30px;
+  padding:30px;
 `;
 
 export const SignupHeader = styled.h1`
@@ -24,32 +25,3 @@ export const SignupHeader = styled.h1`
   margin-bottom: 1.5rem;
 `;
 
-export const InputStyling = styled.div`
-  input {
-    display: block;
-    width: 300px;
-    height: 30px;
-    margin-bottom: 1rem;
-    border: none;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 100px;
-    text-align: center;
-    font-size: 20px;
-    padding: 1.2rem;
-  }
-
-  input:hover {
-    background: white;
-  }
-
-  textarea:focus,
-  input:focus {
-    color: hotpink;
-  }
-
-  input,
-  select,
-  textarea {
-    color: #222;
-  }
-`;
